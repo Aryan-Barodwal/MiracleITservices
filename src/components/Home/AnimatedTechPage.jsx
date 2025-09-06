@@ -205,7 +205,6 @@ const AnimatedTechPage = () => {
       <div className="w-full lg:w-1/2 bg-gradient-to-br from-black to-gray-900 bg-black relative flex items-center justify-center px-6 sm:px-12 lg:px-16 py-12 min-h-[50vh] lg:min-h-screen overflow-hidden">
         {/* Three.js Canvas Container */}
         <div
-          z
           ref={canvasContainerRef}
           className="absolute inset-0 z-0"
           onMouseMove={handleMouseMove}
@@ -277,38 +276,6 @@ const AnimatedTechPage = () => {
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .animate-fadeInUp {
-          animation: fadeInUp 1s ease-out forwards;
-        }
-
-        .animate-fadeInUp:nth-child(2) {
-          animation-delay: 0.2s;
-          opacity: 0;
-        }
-
-        .animate-fadeInUp:nth-child(3) {
-          animation-delay: 0.4s;
-          opacity: 0;
-        }
-
-        .animate-fadeInUp:nth-child(4) {
-          animation-delay: 0.6s;
-          opacity: 0;
-        }
-      `}</style>
     </div>
   );
 };

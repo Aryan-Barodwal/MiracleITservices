@@ -347,7 +347,7 @@ const AnimatedThirdPage = () => {
         </div>
       </div>
 
-      <style jsx>{`
+      {/* <style >{`
         @keyframes spin-slow {
           from {
             transform: rotate(0deg);
@@ -369,7 +369,7 @@ const AnimatedThirdPage = () => {
             order: 2;
           }
         }
-      `}</style>
+      `}</style> */}
     </div>
   );
 };
