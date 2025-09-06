@@ -1,0 +1,28 @@
+ * {
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+   scroll-behavior: smooth;
+ }
+
+ /* Hide scrollbar by default */
+ body::-webkit-scrollbar {
+   width: 0;
+   transition: width 0.3s;
+ }
+
+ /* Show scrollbar on body hover */
+ body:hover::-webkit-scrollbar {
+   width: 0px;
+ }
+
+ /* Optional: track and thumb styling */
+ body::-webkit-scrollbar-track {
+   background: transparent;
+ }
+
+ body::-webkit-scrollbar-thumb {
+   background-color: black;
+   border-radius: 10px;
+ }
+

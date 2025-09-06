@@ -1,0 +1,19 @@
+#navbar {
+    /* background-color: rgba(17, 10, 10, 0.937); */
+    /* backdrop-filter: blur(10px); */
+
+}
+
+#Nav {
+    position: relative;
+    z-index: 100;
+    /* background: #000; */
+    /* High value to ensure it's on top */
+}
+
+#navbar {
+    background-color: transparent;
+    position: relative;
+    z-index: 100;
+    /* Must be > than your background image's z-index */
+}
