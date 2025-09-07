@@ -27,7 +27,7 @@ const Footer = () => {
                 technology solutions.
               </p>
               <Link
-                To="/privacypolicy"
+                to="/privacypolicy"
                 className="text-gray-400 text-sm hover:text-gray-300 transition-colors"
               >
                 Privacy Policy
