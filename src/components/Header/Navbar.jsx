@@ -101,7 +101,6 @@ const Navbar = () => {
         </div>
 
         {/* Right-side Menu */}
-
         <div className="md:block hidden">
           <div id="third" className="flex gap-4 items-center ">
             {/* Services with dropdown */}
@@ -115,7 +114,7 @@ const Navbar = () => {
               </h1>
 
               {showDropdown && (
-                <div className="absolute top-[1.90rem] left-[-229px] bg-white text-black shadow-xl px-8 py-8 w-[780px] grid grid-cols-3 gap-4 z-50 border-t-[4px] border-blue-500">
+                <div className="absolute top-[1.85rem] left-[-229px] bg-white text-black shadow-xl px-8 py-8 w-[780px] grid grid-cols-3 gap-4 z-50 border-t-[4px] border-blue-500">
                   <Link
                     to="/services"
                     className="absolute top-2 right-2 w-6 h-6 border-[2px] border-black rounded-full flex items-center justify-center"
@@ -210,9 +209,9 @@ const Navbar = () => {
               )}
             </div>
 
-            <a href="/about-us">
+            <Link to="/about-us">
               <h1 className="cursor-pointer">About Us</h1>
-            </a>
+            </Link>
             {/* Blog */}
             <h1 onClick={notify} className="cursor-pointer ">
               Blog
@@ -221,7 +220,7 @@ const Navbar = () => {
             {/* Enquiry Button */}
             <button
               id="buttonNav"
-              className="p-1 px-5 border-[3px] border-[#0993a5] bg-[#0993a5] text-white rounded-2xl"
+              className="p-1 px-5 border-[3px] border-[#0895B6] bg-[#0895B6] text-white rounded-2xl"
               type="button"
             >
               <Link to="/contact">Enquiry</Link>
@@ -249,7 +248,11 @@ const Navbar = () => {
             <div className="flex flex-col gap-4 items-start p-8">
               <h2 className="text-gray-300 flex items-center gap-2">
                 <span className="text-[#FD356E]">
-                  <img className="w-12" src="/images/logoNEW.png" alt="logoNEW" />
+                  <img
+                    className="w-12"
+                    src="/images/logoNEW.png"
+                    alt="logoNEW"
+                  />
                 </span>
                 <span className="font-bold text-xl">MIRACLE</span>
               </h2>
@@ -354,9 +357,10 @@ const Navbar = () => {
                 </div>
               </div>
 
-              <a href="/about-us">
+              <Link to="/about-us">
                 <h1 className="cursor-pointer">About Us</h1>
-              </a>
+              </Link>
+
               {/* Blog */}
               <h1 onClick={notify} className="cursor-pointer ">
                 Blog
@@ -365,7 +369,7 @@ const Navbar = () => {
               {/* Enquiry Button */}
               <button
                 id="buttonNav"
-                className="p-1 px-5 border-[3px] border-[#0993a5] bg-[#0993a5] text-white rounded-2xl"
+                className="p-1 px-5 border-[3px] border-[#0895B6] bg-[#0895B6] text-white rounded-2xl"
                 type="button"
               >
                 <Link to="/contact">Enquiry</Link>
@@ -382,11 +386,11 @@ const Navbar = () => {
               </button>
             </div>
 
-            <div className="absolute ">
+            {/* <div className="absolute ">
               <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
                 <Stars />
               </Canvas>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
