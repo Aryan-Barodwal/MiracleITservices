@@ -28,5 +28,5 @@
 
 .button:hover::after {
     transform: scaleX(1);
-    /* full underline on hover */
+ 
 }
