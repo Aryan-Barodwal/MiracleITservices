@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const testimonials = [
   {
@@ -58,7 +58,14 @@ const ScrollingRow = ({ direction = "left", speed = 0.5 }) => {
   const translateX = useRef(0);
   const animationRef = useRef();
 
+  // ✅ Dragging state
+  const [isDragging, setIsDragging] = useState(false);
+  const startX = useRef(0);
+  const scrollLeft = useRef(0);
+
   useEffect(() => {
+    if (isDragging) return; // stop auto-scroll while dragging
+
     const animate = () => {
       const container = containerRef.current;
       if (!container) return;
@@ -67,7 +74,6 @@ const ScrollingRow = ({ direction = "left", speed = 0.5 }) => {
 
       const totalWidth = container.scrollWidth / 2;
 
-      // Loop
       if (translateX.current <= -totalWidth) {
         translateX.current = 0;
       } else if (translateX.current >= 0) {
@@ -80,20 +86,84 @@ const ScrollingRow = ({ direction = "left", speed = 0.5 }) => {
 
     animationRef.current = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(animationRef.current);
-  }, [direction, speed]);
+  }, [direction, speed, isDragging]);
+
+  // ✅ Drag Handlers
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const onMouseDown = (e) => {
+      setIsDragging(true);
+      startX.current = e.pageX - container.offsetLeft;
+      scrollLeft.current = translateX.current;
+      container.style.cursor = "grabbing";
+    };
+
+    const onMouseMove = (e) => {
+      if (!isDragging) return;
+      e.preventDefault();
+      const x = e.pageX - container.offsetLeft;
+      const walk = x - startX.current;
+      translateX.current = scrollLeft.current + walk;
+      container.style.transform = `translateX(${translateX.current}px)`;
+    };
+
+    const onMouseUp = () => {
+      setIsDragging(false);
+      container.style.cursor = "grab";
+    };
+
+    const onTouchStart = (e) => {
+      setIsDragging(true);
+      startX.current = e.touches[0].pageX - container.offsetLeft;
+      scrollLeft.current = translateX.current;
+    };
+
+    const onTouchMove = (e) => {
+      if (!isDragging) return;
+      const x = e.touches[0].pageX - container.offsetLeft;
+      const walk = x - startX.current;
+      translateX.current = scrollLeft.current + walk;
+      container.style.transform = `translateX(${translateX.current}px)`;
+    };
+
+    const onTouchEnd = () => setIsDragging(false);
+
+    // Add listeners
+    container.addEventListener("mousedown", onMouseDown);
+    container.addEventListener("mousemove", onMouseMove);
+    container.addEventListener("mouseup", onMouseUp);
+    container.addEventListener("mouseleave", onMouseUp);
+
+    container.addEventListener("touchstart", onTouchStart);
+    container.addEventListener("touchmove", onTouchMove);
+    container.addEventListener("touchend", onTouchEnd);
+
+    return () => {
+      container.removeEventListener("mousedown", onMouseDown);
+      container.removeEventListener("mousemove", onMouseMove);
+      container.removeEventListener("mouseup", onMouseUp);
+      container.removeEventListener("mouseleave", onMouseUp);
+
+      container.removeEventListener("touchstart", onTouchStart);
+      container.removeEventListener("touchmove", onTouchMove);
+      container.removeEventListener("touchend", onTouchEnd);
+    };
+  }, [isDragging]);
 
   return (
     <div className="relative w-full overflow-hidden">
-      {/* 🔹 Left Gradient Overlay */}
+      {/* Left Overlay */}
       <div className="pointer-events-none absolute top-0 left-0 h-full md:w-24 w-6 z-10 bg-gradient-to-r from-black via-black/80 to-transparent" />
 
-      {/* 🔹 Right Gradient Overlay */}
+      {/* Right Overlay */}
       <div className="pointer-events-none absolute top-0 right-0 h-full md:w-24 w-6 z-10 bg-gradient-to-l from-black via-black/80 to-transparent" />
 
-      {/* 🔹 Scrolling Content */}
+      {/* Draggable / Auto-Scrolling Row */}
       <div
         ref={containerRef}
-        className="flex gap-6 will-change-transform relative z-0"
+        className="flex gap-6 will-change-transform relative z-0 cursor-grab"
         style={{ width: "max-content" }}
       >
         {[...testimonials, ...testimonials].map((item, idx) => (
