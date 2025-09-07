@@ -10,6 +10,7 @@ import AboutUs from "./components/AboutUs/AboutUs.jsx";
 import Contact from "./components/Contact/Contact.jsx";
 import Reviews from "./components/Reviews/Reviews.jsx";
 import toast, { Toaster } from "react-hot-toast";
+import GradientText from "./components/OGL/GradientText.jsx";
 
 import Privacy from "./components/PrivacyPolicyPage.jsx";
 
@@ -29,14 +30,26 @@ export default function App() {
   if (loading) {
     return (
       <div className="flex items-center justify-center w-screen min-h-screen bg-black text-white">
-        <h2 className="text-2xl animate-pulse">Loading...</h2>
+        <h2 className="text-2xl animate-pulse">
+          {" "}
+          <GradientText
+            colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+            animationSpeed={3}
+            showBorder={false}
+            className="custom-class"
+          >
+            Loading...
+          </GradientText>
+        </h2>
       </div>
     );
   }
 
+
+
   return (
     <>
-      <Toaster /> 
+      <Toaster />
       <Navbar />
       <ChatB />
       <ScrollToTop />

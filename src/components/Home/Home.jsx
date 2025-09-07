@@ -6,7 +6,6 @@ import LeafletMap from "../LeafletMap.jsx";
 import { gsap } from "gsap";
 
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { SplitText } from "gsap/SplitText";
 import * as THREE from "three";
 import AnimatedTechPage from "./AnimatedTechPage.jsx";
 import AnimatedThirdPage from "./AnimatedThirdPage.jsx";
@@ -15,18 +14,10 @@ import AnimatedLineChart from "./AnimatedLineChart.jsx";
 import AnimatedServicesTable from "./AnimatedServicesTable.jsx";
 import HowWeWorkSection from "./HowWeWorkSection.jsx";
 
-gsap.registerPlugin(ScrollTrigger, SplitText);
+gsap.registerPlugin(ScrollTrigger);
 
 import React from "react";
 
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  ResponsiveContainer,
-} from "recharts";
 
 const Home = () => {
   // useEffect(() => {
@@ -41,15 +32,6 @@ const Home = () => {
   //     ease: "power3.out",
   //   });
   // }, []);
-
-  const data = [
-    { month: "Jan", uptime: 40, supportHours: 5 },
-    { month: "Feb", uptime: 57, supportHours: 21 },
-    { month: "Mar", uptime: 80, supportHours: 27 },
-    { month: "Apr", uptime: 87, supportHours: 38 },
-    { month: "May", uptime: 95, supportHours: 48 },
-    { month: "Jun", uptime: 99, supportHours: 56 },
-  ];
 
   return (
     <div id="HOME">
@@ -74,7 +56,7 @@ const Home = () => {
           ></div>
 
           <div className="w-full h-[98vh] font-bold text-white flex flex-col items-start justify-center px-4 md:px-10 lg:px-20">
-            <h1 className="H1 text-[5rem] md:text-[6rem] lg:text-[7rem] flex items-start">
+            <h1 className="H1 text-[5rem] md:text-[6rem] lg:text-[7rem] flex items-start  ">
               <span className="text-[3.7rem] md:text-[5rem] lg:text-[6rem] font-bold text-center pl-2 md:pl-5 lg:pl-1">
                 MIRACLE IT SERVICES
               </span>
