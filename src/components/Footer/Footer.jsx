@@ -26,12 +26,12 @@ const Footer = () => {
                 services. Our goal is to help you deliver high-quality
                 technology solutions.
               </p>
-              <a
-                href="/privacypolicy"
+              <Link
+                To="/privacypolicy"
                 className="text-gray-400 text-sm hover:text-gray-300 transition-colors"
               >
                 Privacy Policy
-              </a>
+              </Link>
             </div>
 
             {/* Center Section - Navigation */}

@@ -108,6 +108,7 @@ const Navbar = () => {
               className="relative"
               onMouseEnter={() => setShowDropdown(true)}
               onMouseLeave={() => setShowDropdown(false)}
+              onClick={() => setShowDropdown((prev) => !prev)} // ✅ toggle on click
             >
               <h1 className="cursor-pointer flex items-center gap-1">
                 Services <i className="ri-arrow-drop-down-line text-xl"></i>
@@ -238,6 +239,7 @@ const Navbar = () => {
           </div>
         </div>
 
+        {/* Mob */}
         <div ref={menuRef} className="block md:hidden">
           <Hamburger toggled={isOpen} toggle={setOpen} />
           <div
@@ -357,12 +359,12 @@ const Navbar = () => {
                 </div>
               </div>
 
-              <Link to="/about-us">
+              <Link to="/about-us" onClick={() => setOpen(false)}>
                 <h1 className="cursor-pointer">About Us</h1>
               </Link>
 
               {/* Blog */}
-              <h1 onClick={notify} className="cursor-pointer ">
+              <h1 onClick={() => { notify(); setOpen(false); }} className="cursor-pointer ">
                 Blog
               </h1>
 
@@ -371,6 +373,7 @@ const Navbar = () => {
                 id="buttonNav"
                 className="p-1 px-5 border-[3px] border-[#0895B6] bg-[#0895B6] text-white rounded-2xl"
                 type="button"
+                onClick={() => setOpen(false)}
               >
                 <Link to="/contact">Enquiry</Link>
               </button>
@@ -385,12 +388,6 @@ const Navbar = () => {
                 <i className="ri-gemini-fill text-yellow-400"></i>
               </button>
             </div>
-
-            {/* <div className="absolute ">
-              <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
-                <Stars />
-              </Canvas>
-            </div> */}
           </div>
         </div>
       </div>

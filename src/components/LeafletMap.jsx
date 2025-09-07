@@ -27,11 +27,14 @@ export default function LeafletMap() {
       <MapContainer
         center={position}
         zoom={25}
-        scrollWheelZoom={true}
+        scrollWheelZoom={false}
+        dragging={false}       // 🚫 disable moving left-right / up-down
+        doubleClickZoom={false} // optional: disable double-click zoom
+        touchZoom={false}      // optional: disable pinch zoom on mobile
         style={{
           height: "100%",
           width: "100%",
-          zIndex: 0, // keep map under overlays
+          zIndex: 0,
         }}
       >
         <TileLayer
@@ -40,13 +43,13 @@ export default function LeafletMap() {
         />
         <Marker position={position}>
           <Popup>
-             📍 B-11/4, Mansrovar Building, 90 Nehru Place, Delhi 110019
+            📍 B-11/4, Mansrovar Building, 90 Nehru Place, Delhi 110019
           </Popup>
         </Marker>
       </MapContainer>
 
-     
-      <div className="md:block hidden"
+      <div
+        className="md:block hidden"
         style={{
           position: "absolute",
           top: "50%",
@@ -64,7 +67,8 @@ export default function LeafletMap() {
           zIndex: 1000, // always above map
         }}
       >
-        Delhi Office:- 📍 B-11/4, Mansrovar Building, 90 Nehru Place, Delhi 110019
+        Delhi Office:- 📍 B-11/4, Mansrovar Building, 90 Nehru Place, Delhi
+        110019
       </div>
 
       {/* Theme toggle button */}
