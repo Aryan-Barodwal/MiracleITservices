@@ -13,6 +13,7 @@ import {
   PointsMaterial,
   Points
 } from 'three';
+import { Link } from 'react-router-dom';
 
 // CountUp component
 const CountUp = ({ from, to, duration, className }) => {
@@ -74,15 +75,15 @@ const AnimatedStatsPage = () => {
   // Statistics data
   const statsData = [
     {
-      number: 15,
+      number: 25,
       suffix: "years",
       description: "IT services experience",
       index: "/01"
     },
     {
-      number: 100,
+      number: 500,
       suffix: "+",
-      description: "Satisfied Clients Worldwide", 
+      description: "Satisfied Clients", 
       index: "/02"
     },
     {
@@ -381,7 +382,7 @@ const AnimatedStatsPage = () => {
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
         }`} style={{ transitionDelay: '0.8s' }}>
           <button className="group relative px-8 py-4 bg-gradient-to-r from-cyan-600 to-cyan-700 text-white font-semibold rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/25">
-            <a href="/contact"><span className="relative z-10">Start Your journey</span></a>
+            <Link to="/contact"><span className="relative z-10">Start Your journey</span></Link>
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
           </button>
         </div>
