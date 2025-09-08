@@ -19,7 +19,10 @@ export default function ChatBot() {
     }
 
     if (msg.includes("how are you")) {
-      return "😊 I’m doing great, thanks for asking! How about you?";
+      return "😊 I’m doing great, thanks for asking! What about you?";
+    }
+    if (msg.includes("fine")) {
+      return "😊 ok that's great, Now let's talk about Some work?";
     }
 
     if (
@@ -28,7 +31,7 @@ export default function ChatBot() {
       msg.includes("mobile") ||
       msg.includes("address")
     ) {
-      return "📍 B-11/4 Mansrover Building, 90 Nehru Place, Delhi 110019\n📞 9999999999";
+      return "📍 B-11/4 Mansrover Building, 90 Nehru Place, Delhi 110019\n📞 +91 9871331804";
     }
 
     if (msg.includes("services")) {
@@ -40,7 +43,7 @@ export default function ChatBot() {
     }
 
     // default reply
-    return "🤖 Hmm, I didn’t quite get that. Could you rephrase?";
+    return "🤖 Hmm, I didn’t quite get that. Could you talk about some work?";
   };
 
   const handleSend = () => {

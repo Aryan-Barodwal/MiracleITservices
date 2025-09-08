@@ -11,6 +11,8 @@ import {
   Line,
   Vector3,
 } from "three";
+import { Link } from 'react-router-dom';
+
 
 const AnimatedThirdPage = () => {
   const canvasContainerRef = useRef(null);
@@ -308,11 +310,11 @@ const AnimatedThirdPage = () => {
           style={{ transitionDelay: "0.8s" }}
         >
           <button className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-purple-600 via-pink-600 to-teal-600 text-white font-semibold rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/25">
-            <a href="/contact">
+            <Link to="/contact">
               <span className="relative z-10 text-sm sm:text-base">
                 Get Started Today
               </span>
-            </a>
+            </Link>
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
           </button>
         </div>
