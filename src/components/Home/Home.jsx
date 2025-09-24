@@ -39,9 +39,10 @@ const Home = () => {
         <div
           className="bg-image absolute inset-0 z-0 bg-cover bg-center bg-landing"
           style={{
-            backgroundImage: "url('/images/1.jpg')",
+            // backgroundImage: "url('/images/1.jpg')",
+            backgroundImage: "url('/images/Landing.jpg')",
             backgroundSize: "cover",
-            backgroundPosition: "bottom",
+            backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
           }}
         >

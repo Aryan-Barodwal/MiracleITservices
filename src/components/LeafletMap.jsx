@@ -14,7 +14,7 @@ L.Icon.Default.mergeOptions({
 
 export default function LeafletMap() {
   const position = [28.548333, 77.252778];
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(false);
 
   const darkTiles =
     "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png";

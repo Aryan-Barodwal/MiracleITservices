@@ -94,8 +94,13 @@ const Navbar = () => {
         <div id="first">
           <h2 className="text-gray-300 flex items-center gap-2">
             <span className="text-[#FD356E]">
-              <img className="w-12" src="/images/logoNEW.png" alt="logoNEW" />
+              <img
+                className="w-12"
+                src="/images/logoNEW-removebg-preview.png"
+                alt="logoNEW"
+              />
             </span>
+
             <span className="font-bold text-xl">MIRACLE</span>
           </h2>
         </div>
@@ -364,7 +369,13 @@ const Navbar = () => {
               </Link>
 
               {/* Blog */}
-              <h1 onClick={() => { notify(); setOpen(false); }} className="cursor-pointer ">
+              <h1
+                onClick={() => {
+                  notify();
+                  setOpen(false);
+                }}
+                className="cursor-pointer "
+              >
                 Blog
               </h1>
 
